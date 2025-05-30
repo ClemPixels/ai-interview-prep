@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
 import { auth, db } from "@/firebase/admin";
@@ -80,7 +81,7 @@ export async function signIn(params: SignInParams) {
 
     await setSessionCookie(idToken);
   } catch (error: any) {
-    console.log("");
+    console.log("sign-in error:", error);
 
     return {
       success: false,
