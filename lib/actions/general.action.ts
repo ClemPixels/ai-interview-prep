@@ -91,7 +91,7 @@ export async function getFeedbackByInterviewId(
 }
 
 export async function getLatestInterviews(
-  params: GetLatestInterviewsParams
+    params: { userId: string | undefined }
 ): Promise<Interview[] | null> {
   const { userId, limit = 20 } = params;
 
@@ -110,7 +110,7 @@ export async function getLatestInterviews(
 }
 
 export async function getInterviewsByUserId(
-  userId: string
+    userId: string | undefined
 ): Promise<Interview[] | null> {
   const interviews = await db
     .collection("interviews")
